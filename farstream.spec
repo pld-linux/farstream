@@ -6,16 +6,16 @@
 %include	/usr/lib/rpm/macros.gstreamer
 Summary:	Audio/Video Communications Framework
 Name:		farstream
-Version:	0.1.1
+Version:	0.1.2
 Release:	1
 License:	LGPL v2+
 Group:		Libraries
 Source0:	http://freedesktop.org/software/farstream/releases/farstream/%{name}-%{version}.tar.gz
-# Source0-md5:	74f8048c915e8f4675cb749bc10f54e9
+# Source0-md5:	5d6e561b3688d0d0c8906fec4f356df3
 URL:		http://www.freedesktop.org/wiki/Software/Farstream
 BuildRequires:	autoconf >= 2.60
 BuildRequires:	automake
-BuildRequires:	glib2-devel >= 1:2.26.0
+BuildRequires:	glib2-devel >= 1:2.30.0
 BuildRequires:	gobject-introspection-devel >= 0.10.1
 BuildRequires:	gstreamer-devel >= 0.10.33
 BuildRequires:	gstreamer-plugins-base-devel >= 0.10.33
@@ -27,11 +27,20 @@ BuildRequires:	pkgconfig
 BuildRequires:	python-devel >= 1:2.4
 BuildRequires:	python-gstreamer-devel >= 0.10.10
 BuildRequires:	python-pygobject-devel >= 2.16.0
+Obsoletes:	farsight2 < 0.0.32
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Farstream is a collection of GStreamer modules and libraries for
-videoconferencing.
+The Farstream (formerly Farsight) project is an effort to create a
+framework to deal with all known audio/video conferencing protocols.
+On one side it offers a generic API that makes it possible to write
+plugins for different streaming protocols, on the other side it offers
+an API for clients to use those plugins.
+
+The main target clients for Farstream are Instant Messaging
+applications. These applications should be able to use Farstream for
+all their Audio/Video conferencing needs without having to worry about
+any of the lower level streaming and NAT traversal issues.
 
 %package devel
 Summary:	Header files for Farstream library
@@ -40,6 +49,7 @@ Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	gstreamer-devel >= 0.10.33
 Requires:	gstreamer-plugins-base-devel >= 0.10.33
+Obsoletes:	farsight2-devel < 0.0.32
 
 %description devel
 Header files for Farstream library.
@@ -52,6 +62,7 @@ Summary:	Static Farstream library
 Summary(pl.UTF-8):	Statyczna biblioteka Farstream
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
+Obsoletes:	farsight2-static < 0.0.32
 
 %description static
 Static Farstream library.
@@ -64,6 +75,7 @@ Summary:	Farstream API documentation
 Summary(pl.UTF-8):	Dokumentacja API biblioteki Farstream
 Group:		Documentation
 Requires:	gtk-doc-common
+Obsoletes:	farsight2-apidocs < 0.0.32
 
 %description apidocs
 API documentation for Farstream library.
@@ -76,6 +88,7 @@ Summary:	Farstream Python bindings
 Summary(pl.UTF-8):	Wiązania języka Python do Farstream
 Group:		Libraries/Python
 Requires:	%{name} = %{version}-%{release}
+Obsoletes:	python-farsight2 < 0.0.32
 
 %description -n python-farstream
 Farstream Python bindings.
