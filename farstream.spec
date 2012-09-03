@@ -5,6 +5,7 @@
 #
 %include	/usr/lib/rpm/macros.gstreamer
 Summary:	Audio/Video Communications Framework
+Summary(pl.UTF-8):	Szkielet komunikacji Audio/Video
 Name:		farstream
 Version:	0.1.2
 Release:	1
@@ -27,6 +28,10 @@ BuildRequires:	pkgconfig
 BuildRequires:	python-devel >= 1:2.4
 BuildRequires:	python-gstreamer-devel >= 0.10.10
 BuildRequires:	python-pygobject-devel >= 2.16.0
+Requires:	glib2 >= 1:2.30.0
+Requires:	gstreamer >= 0.10.33
+Requires:	gstreamer-plugins-base >= 0.10.33
+Requires:	libnice >= 0.1.0
 Obsoletes:	farsight2 < 0.0.32
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -42,11 +47,24 @@ applications. These applications should be able to use Farstream for
 all their Audio/Video conferencing needs without having to worry about
 any of the lower level streaming and NAT traversal issues.
 
+%description -l pl.UTF-8
+Projekt Farstream (dawniej Farsight) to próba stworzenia szkieletu
+obsługującego wszystkie znane protokoły konferencji audio/video. Z
+jednej strony oferuje ogólne API umożliwiające pisanie wtyczek dla
+różnych protokołów strumieniowych, z drugiej strony oferuje API dla
+klientów, pozwalającyce im używać tych wtyczek.
+
+Głównymi klientami szkieletu Farstream mają być aplikacje
+komunikatorów (IM). Powinny być w stanie używać Farstreama do potrzeb
+konferencji audio/video bez konieczności obsługi niskopoziomowych
+poziomów strumieni i omijania NAT-u.
+
 %package devel
 Summary:	Header files for Farstream library
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki Farstream
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
+Requires:	glib2-devel >= 1:2.30.0
 Requires:	gstreamer-devel >= 0.10.33
 Requires:	gstreamer-plugins-base-devel >= 0.10.33
 Obsoletes:	farsight2-devel < 0.0.32
@@ -85,16 +103,18 @@ Dokumentacja API biblioteki Farstream.
 
 %package -n python-farstream
 Summary:	Farstream Python bindings
-Summary(pl.UTF-8):	Wiązania języka Python do Farstream
+Summary(pl.UTF-8):	Wiązania języka Python do biblioteki Farstream
 Group:		Libraries/Python
 Requires:	%{name} = %{version}-%{release}
+Requires:	python-gstreamer >= 0.10.10
+Requires:	python-pygobject >= 2.16.0
 Obsoletes:	python-farsight2 < 0.0.32
 
 %description -n python-farstream
 Farstream Python bindings.
 
 %description -n python-farstream -l pl.UTF-8
-Wiązania języka Python do Farstream.
+Wiązania języka Python do biblioteki Farstream.
 
 %prep
 %setup -q
