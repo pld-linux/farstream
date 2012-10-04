@@ -24,9 +24,11 @@ BuildRequires:	gupnp-igd-devel >= 0.2
 BuildRequires:	libnice-devel >= 0.1.3
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
+BuildRequires:	python >= 2.1
 Requires:	glib2 >= 1:2.32.0
 Requires:	gstreamer >= 1.0.0
 Requires:	gstreamer-plugins-base >= 1.0.0
+Requires:	gupnp-igd >= 0.2
 Requires:	libnice >= 0.1.3
 Obsoletes:	farsight2 < 0.0.32
 Obsoletes:	python-farsight2 < 0.0.32
