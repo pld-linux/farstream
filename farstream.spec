@@ -6,31 +6,30 @@
 Summary:	Audio/Video Communications Framework
 Summary(pl.UTF-8):	Szkielet komunikacji Audio/Video
 Name:		farstream
-Version:	0.2.4
+Version:	0.2.6
 Release:	1
 License:	LGPL v2+
 Group:		Libraries
 Source0:	http://freedesktop.org/software/farstream/releases/farstream/%{name}-%{version}.tar.gz
-# Source0-md5:	edcc75cbf7c811cfe3de9b00b9808682
-Patch0:		%{name}-doc.patch
+# Source0-md5:	63cecbb912e7a8b96d4470420327e2cc
 URL:		http://www.freedesktop.org/wiki/Software/Farstream
 BuildRequires:	autoconf >= 2.60
 BuildRequires:	automake
 BuildRequires:	glib2-devel >= 1:2.32.0
 BuildRequires:	gobject-introspection-devel >= 0.10.1
-BuildRequires:	gstreamer-devel >= 1.0.0
-BuildRequires:	gstreamer-plugins-base-devel >= 1.0.0
-BuildRequires:	gtk-doc >= 1.8
+BuildRequires:	gstreamer-devel >= 1.4
+BuildRequires:	gstreamer-plugins-base-devel >= 1.4
+BuildRequires:	gtk-doc >= 1.18
 BuildRequires:	gupnp-igd-devel >= 0.2
-BuildRequires:	libnice-devel >= 0.1.3
+BuildRequires:	libnice-devel >= 0.1.8
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	python >= 2.1
 Requires:	glib2 >= 1:2.32.0
-Requires:	gstreamer >= 1.0.0
-Requires:	gstreamer-plugins-base >= 1.0.0
+Requires:	gstreamer >= 1.4
+Requires:	gstreamer-plugins-base >= 1.4
 Requires:	gupnp-igd >= 0.2
-Requires:	libnice >= 0.1.3
+Requires:	libnice >= 0.1.8
 Obsoletes:	farsight2 < 0.0.32
 Obsoletes:	python-farsight2 < 0.0.32
 Obsoletes:	python-farstream < 0.2.0
@@ -66,8 +65,8 @@ Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki Farstream
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	glib2-devel >= 1:2.32.0
-Requires:	gstreamer-devel >= 1.0.0
-Requires:	gstreamer-plugins-base-devel >= 1.0.0
+Requires:	gstreamer-devel >= 1.4
+Requires:	gstreamer-plugins-base-devel >= 1.4
 Obsoletes:	farsight2-devel < 0.0.32
 
 %description devel
@@ -104,7 +103,6 @@ Dokumentacja API biblioteki Farstream.
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
 %{__libtoolize}
@@ -147,8 +145,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/farstream-0.2/libshm-transmitter.so
 %attr(755,root,root) %{_libdir}/gstreamer-1.0/libfsmsnconference.so
 %attr(755,root,root) %{_libdir}/gstreamer-1.0/libfsrawconference.so
-%attr(755,root,root) %{_libdir}/gstreamer-1.0/libfsrtcpfilter.so
 %attr(755,root,root) %{_libdir}/gstreamer-1.0/libfsrtpconference.so
+%attr(755,root,root) %{_libdir}/gstreamer-1.0/libfsrtpxdata.so
 %attr(755,root,root) %{_libdir}/gstreamer-1.0/libfsvideoanyrate.so
 %{_datadir}/farstream
 
