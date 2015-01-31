@@ -6,12 +6,12 @@
 Summary:	Audio/Video Communications Framework
 Summary(pl.UTF-8):	Szkielet komunikacji Audio/Video
 Name:		farstream
-Version:	0.2.6
+Version:	0.2.7
 Release:	1
 License:	LGPL v2+
 Group:		Libraries
 Source0:	http://freedesktop.org/software/farstream/releases/farstream/%{name}-%{version}.tar.gz
-# Source0-md5:	63cecbb912e7a8b96d4470420327e2cc
+# Source0-md5:	bb56af4cbf2cd42f35353f20cf04bc17
 URL:		http://www.freedesktop.org/wiki/Software/Farstream
 BuildRequires:	autoconf >= 2.60
 BuildRequires:	automake
@@ -136,7 +136,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_libdir}/libfarstream-0.2.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libfarstream-0.2.so.2
+%attr(755,root,root) %ghost %{_libdir}/libfarstream-0.2.so.5
 %{_libdir}/girepository-1.0/Farstream-0.2.typelib
 %dir %{_libdir}/farstream-0.2
 %attr(755,root,root) %{_libdir}/farstream-0.2/libmulticast-transmitter.so
