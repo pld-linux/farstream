@@ -2,12 +2,12 @@
 # Conditional build:
 %bcond_without	apidocs		# do not build and package API docs
 %bcond_without	static_libs	# don't build static libraries
-#
+
 Summary:	Audio/Video Communications Framework
 Summary(pl.UTF-8):	Szkielet komunikacji Audio/Video
 Name:		farstream
 Version:	0.2.7
-Release:	1
+Release:	2
 License:	LGPL v2+
 Group:		Libraries
 Source0:	http://freedesktop.org/software/farstream/releases/farstream/%{name}-%{version}.tar.gz
@@ -94,6 +94,9 @@ Summary(pl.UTF-8):	Dokumentacja API biblioteki Farstream
 Group:		Documentation
 Requires:	gtk-doc-common
 Obsoletes:	farsight2-apidocs < 0.0.32
+%if "%{_rpmversion}" >= "5"
+BuildArch:	noarch
+%endif
 
 %description apidocs
 API documentation for Farstream library.
