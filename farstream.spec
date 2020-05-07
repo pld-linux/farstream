@@ -6,12 +6,13 @@
 Summary:	Audio/Video Communications Framework
 Summary(pl.UTF-8):	Szkielet komunikacji Audio/Video
 Name:		farstream
-Version:	0.2.8
+Version:	0.2.9
 Release:	1
 License:	LGPL v2+
 Group:		Libraries
 Source0:	http://freedesktop.org/software/farstream/releases/farstream/%{name}-%{version}.tar.gz
-# Source0-md5:	a40d4c4bd0812c270069b9f97d74009b
+# Source0-md5:	35ad6b9e0fb52debeaa2d5194bf5153c
+Patch0:		%{name}-make.patch
 URL:		https://www.freedesktop.org/wiki/Software/Farstream
 BuildRequires:	autoconf >= 2.60
 BuildRequires:	automake
@@ -106,6 +107,7 @@ Dokumentacja API biblioteki Farstream.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %{__libtoolize}
@@ -146,7 +148,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/farstream-0.2/libnice-transmitter.so
 %attr(755,root,root) %{_libdir}/farstream-0.2/librawudp-transmitter.so
 %attr(755,root,root) %{_libdir}/farstream-0.2/libshm-transmitter.so
-%attr(755,root,root) %{_libdir}/gstreamer-1.0/libfsmsnconference.so
 %attr(755,root,root) %{_libdir}/gstreamer-1.0/libfsrawconference.so
 %attr(755,root,root) %{_libdir}/gstreamer-1.0/libfsrtpconference.so
 %attr(755,root,root) %{_libdir}/gstreamer-1.0/libfsrtpxdata.so

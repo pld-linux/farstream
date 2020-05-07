@@ -1,0 +1,32 @@
+diff -urN farstream-0.2.9.orig/common-modified/gst-glib-gen.mak farstream-0.2.9/common-modified/gst-glib-gen.mak
+--- farstream-0.2.9.orig/common-modified/gst-glib-gen.mak	2020-03-11 22:05:08.000000000 +0100
++++ farstream-0.2.9/common-modified/gst-glib-gen.mak	2020-05-07 23:11:59.220472664 +0200
+@@ -6,7 +6,9 @@
+ #glib_gen_prefix=gst_color_balance
+ #glib_gen_basename=colorbalance
+ 
+-enum_headers=$(foreach h,$(glib_enum_headers),\n\#include \"$(h)\")
++H := \#
++
++enum_headers=$(foreach h,$(glib_enum_headers),\n$(H)include \"$(h)\")
+ 
+ # these are all the rules generating the relevant files
+ $(glib_gen_basename)-enumtypes.h: $(glib_enum_headers)
+diff -urN farstream-0.2.9.orig/farstream/Makefile.am farstream-0.2.9/farstream/Makefile.am
+--- farstream-0.2.9.orig/farstream/Makefile.am	2020-03-11 22:05:08.000000000 +0100
++++ farstream-0.2.9/farstream/Makefile.am	2020-05-07 23:11:39.790549784 +0200
+@@ -69,11 +69,13 @@
+ 		fs-conference.h \
+ 		fs-utils.h
+ 
++H := \#
++
+ glib_enum_headers=$(public_headers)
+ glib_enum_define=FS
+ glib_gen_prefix=_fs
+ glib_gen_basename=fs
+-glib_gen_decl_include=\#include <glib-object.h>
++glib_gen_decl_include=$(H)include <glib-object.h>
+ 
+ include $(top_srcdir)/common-modified/gst-glib-gen.mak
+ 
