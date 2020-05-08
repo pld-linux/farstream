@@ -16,7 +16,7 @@ Patch0:		%{name}-make.patch
 URL:		https://www.freedesktop.org/wiki/Software/Farstream
 BuildRequires:	autoconf >= 2.60
 BuildRequires:	automake
-BuildRequires:	glib2-devel >= 1:2.32.0
+BuildRequires:	glib2-devel >= 1:2.40
 BuildRequires:	gobject-introspection-devel >= 0.10.1
 BuildRequires:	gstreamer-devel >= 1.4
 BuildRequires:	gstreamer-plugins-base-devel >= 1.4
@@ -26,7 +26,7 @@ BuildRequires:	libnice-devel >= 0.1.8
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	python >= 2.1
-Requires:	glib2 >= 1:2.32.0
+Requires:	glib2 >= 1:2.40
 Requires:	gstreamer >= 1.4
 Requires:	gstreamer-plugins-base >= 1.4
 Requires:	gupnp-igd >= 0.2
@@ -65,7 +65,7 @@ Summary:	Header files for Farstream library
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki Farstream
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	glib2-devel >= 1:2.32.0
+Requires:	glib2-devel >= 1:2.40
 Requires:	gstreamer-devel >= 1.4
 Requires:	gstreamer-plugins-base-devel >= 1.4
 Obsoletes:	farsight2-devel < 0.0.32
@@ -95,7 +95,7 @@ Summary(pl.UTF-8):	Dokumentacja API biblioteki Farstream
 Group:		Documentation
 Requires:	gtk-doc-common
 Obsoletes:	farsight2-apidocs < 0.0.32
-%if "%{_rpmversion}" >= "5"
+%if "%{_rpmversion}" >= "4.6"
 BuildArch:	noarch
 %endif
 
