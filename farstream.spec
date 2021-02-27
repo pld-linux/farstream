@@ -26,6 +26,7 @@ BuildRequires:	libnice-devel >= 0.1.8
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	python >= 2.1
+BuildRequires:	rpm-build >= 4.6
 Requires:	glib2 >= 1:2.40
 Requires:	gstreamer >= 1.4
 Requires:	gstreamer-plugins-base >= 1.4
@@ -95,9 +96,7 @@ Summary(pl.UTF-8):	Dokumentacja API biblioteki Farstream
 Group:		Documentation
 Requires:	gtk-doc-common
 Obsoletes:	farsight2-apidocs < 0.0.32
-%if "%{_rpmversion}" >= "4.6"
 BuildArch:	noarch
-%endif
 
 %description apidocs
 API documentation for Farstream library.
