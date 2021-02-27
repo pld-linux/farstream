@@ -10,7 +10,7 @@ Version:	0.2.9
 Release:	1
 License:	LGPL v2+
 Group:		Libraries
-Source0:	http://freedesktop.org/software/farstream/releases/farstream/%{name}-%{version}.tar.gz
+Source0:	https://freedesktop.org/software/farstream/releases/farstream/%{name}-%{version}.tar.gz
 # Source0-md5:	35ad6b9e0fb52debeaa2d5194bf5153c
 Patch0:		%{name}-make.patch
 URL:		https://www.freedesktop.org/wiki/Software/Farstream
